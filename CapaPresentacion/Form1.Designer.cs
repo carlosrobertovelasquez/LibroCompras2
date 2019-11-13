@@ -80,7 +80,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.CmbEliminar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.CmdExcel = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.CmbTipoDoc = new System.Windows.Forms.ComboBox();
@@ -710,20 +709,10 @@
             this.CmbEliminar.UseVisualStyleBackColor = true;
             this.CmbEliminar.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(197, 641);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(143, 38);
-            this.button3.TabIndex = 26;
-            this.button3.Text = "IMPRIMIR";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // CmdExcel
             // 
             this.CmdExcel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CmdExcel.Location = new System.Drawing.Point(30, 640);
+            this.CmdExcel.Location = new System.Drawing.Point(184, 640);
             this.CmdExcel.Name = "CmdExcel";
             this.CmdExcel.Size = new System.Drawing.Size(151, 38);
             this.CmdExcel.TabIndex = 27;
@@ -777,7 +766,6 @@
             this.Controls.Add(this.label23);
             this.Controls.Add(this.CmbTipoDoc);
             this.Controls.Add(this.CmdExcel);
-            this.Controls.Add(this.button3);
             this.Controls.Add(this.CmbEliminar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label22);
@@ -893,7 +881,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button CmbEliminar;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button CmdExcel;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox CmbTipoDoc;

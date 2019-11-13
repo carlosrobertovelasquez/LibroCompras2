@@ -10,10 +10,11 @@ namespace CapaDatos
 {
      public class CD_Conexion
     {
-        private SqlConnection Conexion = new SqlConnection("Data Source = LAPTOP\\SQLEXPRESS; Initial Catalog = COAGRO2; User ID = sa; Password=master#$2016");
+        //private SqlConnection Conexion = new SqlConnection("Data Source = LAPTOP\\SQLEXPRESS; Initial Catalog = COAGRO2; User ID = sa; Password=master#$2016");
 
+        private SqlConnection Conexion = new SqlConnection("Data Source = PELAZON; Initial Catalog = COAGRO2; Persist Security Info=False;Pwd=Houdelot777$;User ID = sa");
 
-       // cn = new SqlConnection("Data Source=PELAZON;Initial Catalog=COAGRO2;Persist Security Info=False;Pwd=Houdelot777$;User ID=sa");
+        // cn = new SqlConnection("Data Source=PELAZON;Initial Catalog=COAGRO2;Persist Security Info=False;Pwd=Houdelot777$;User ID=sa");
         // cn = new SqlConnection("Data Source=LAPTOP\\SQLEXPRESS;Initial Catalog=COAGRO2;User ID=sa;Password=master#$2016");
         //cn.Open();
 
