@@ -77,9 +77,10 @@ namespace CapaPresentacion
 
             MostrarLibro(Convert.ToString(hoy.Month), Convert.ToString(hoy.Year));
             CargarMes();
+        //    CargaDoc();
             ListarAno();
             LimpiarTextbox();
-
+            
             CmbLibro.Items.Add("S");
             CmbLibro.Items.Add("N");
             
@@ -105,6 +106,12 @@ namespace CapaPresentacion
         private void MostrarLibro(string vmes,string vano)
         {
             dataGridView1.DataSource = objetoCN.MostrarLibroCompra(vmes,vano );
+        }
+
+        private void CargaDoc( )
+        {
+            string vano = CmbAno.SelectedItem.ToString();
+            objetoCN.CargarDoc(vano);
         }
 
         private void consultar()
@@ -548,35 +555,30 @@ namespace CapaPresentacion
 
             if (Editar == false)
             {
-                string vorigen = "LC";
-                string vpais = "SAL";
-                string vlocal = "S";
-                string vsubtipo = "1";
-                string vano2 = Convert.ToString(TxtFechaEmision.Value.Year);
-                string vmes2 = Convert.ToString(TxtFechaEmision.Value.Month);
-                try
+
+                if (TxtNumDoc.Text.Length == 0)
                 {
-                    if(TxtNumDoc != null)
-                    {
-                        objetoCN.InsertarRegistro(TxtFechaEmision.Text, TxtNumDoc.Text, TxtNumRegistro.Text, TxtNomProv.Text, Convert.ToDecimal(TxtCompExtLocales.Text), Convert.ToDecimal(TxtCompExtImport.Text), Convert.ToDecimal(TxtCompExtInter.Text), Convert.ToDecimal(TxtCompGraLocales.Text), Convert.ToDecimal(TxtCompGraImportaciones.Text), Convert.ToDecimal(TxtCompGraImportaciones.Text), Convert.ToDecimal(TxtCreditoFiscal.Text), Convert.ToDecimal(TxtTotalCompras.Text), Convert.ToDecimal(TxtIvaUnoPorcientoRetenido.Text), Convert.ToDecimal(TxtRet_Suj_Exc_Cal_Contri.Text), Convert.ToDecimal(TxtComprasExcluidas.Text), Convert.ToDecimal(TxtRetencionATerceros.Text), vmes2, vano2, vorigen, Convert.ToDecimal(TxtFovial.Text), Convert.ToDecimal(TxtConsTrans.Text), vpais, vlocal, vsubtipo, CmbLibro.Text, CmbDentroCA.Text, CmbLibro.Text, CmbLibro.Text, CmbTipoDoc.Text, CmbDentroCA.Text);
-                        MessageBox.Show("Registro Ingresado");
-                        LimpiarTextbox();
-                        consultar();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Requiere que se llene los Campos Obligatorios");
-                    }
-                    
-                    
+                    MessageBox.Show("Numero de Documentos Es Obligatorio");
                 }
-                catch (Exception ex)
+                else if (TxtNomProv.Text.Length ==0)
                 {
-
-                    MessageBox.Show("No se puedo Insertar Los datos!" + ex);
+                    MessageBox.Show("Nombre Proveedore Es Obligatorio");
                 }
-
-
+                else { 
+                    string vorigen = "LC";
+                    string vpais = "SAL";
+                    string vlocal = "S";
+                    string vsubtipo = "1";
+                    string vano2 = Convert.ToString(TxtFechaEmision.Value.Year);
+                    string vmes2 = Convert.ToString(TxtFechaEmision.Value.Month);
+                    
+                    objetoCN.InsertarRegistro(TxtFechaEmision.Text, TxtNumDoc.Text, TxtNumRegistro.Text, TxtIdExcl.Text, TxtNomProv.Text, Convert.ToDecimal(TxtImpuEspe.Text), Convert.ToDecimal(TxtCompExtLocales.Text), Convert.ToDecimal(TxtCompExtImport.Text), Convert.ToDecimal(TxtCompExtInter.Text), Convert.ToDecimal(TxtCompGraLocales.Text), Convert.ToDecimal(TxtCompGraImportaciones.Text), Convert.ToDecimal(TxtCompGraImportaciones.Text), Convert.ToDecimal(TxtCreditoFiscal.Text), Convert.ToDecimal(TxtTotalCompras.Text), Convert.ToDecimal(TxtIvaUnoPorcientoRetenido.Text), Convert.ToDecimal(TxtRet_Suj_Exc_Cal_Contri.Text), Convert.ToDecimal(TxtComprasExcluidas.Text), Convert.ToDecimal(TxtRetencionATerceros.Text), vmes2, vano2, vorigen, Convert.ToDecimal(TxtFovial.Text), Convert.ToDecimal(TxtConsTrans.Text), vpais, vlocal, vsubtipo, CmbLibro.Text, CmbDentroCA.Text, CmbLibro.Text, CmbLibro.Text, CmbTipoDoc.Text, CmbDentroCA.Text);
+                    MessageBox.Show("Registro Ingresado");
+                    LimpiarTextbox();
+                    consultar();
+                }
+                
+                    
             }
             if (Editar == true)
             {
@@ -585,7 +587,7 @@ namespace CapaPresentacion
                     string vorigen = "LC";
                     string vano2 = Convert.ToString(TxtFechaEmision.Value.Year);
                     string vmes2 = Convert.ToString(TxtFechaEmision.Value.Month);
-                                                                                                                 //                                                                                                                                                                                                                                                                                                                                                                
+                                                                                                  //                                                                                                                                                                                                                                                                                                                                                                
                     objetoCN.EditarRegistro(TxtFechaEmision.Text, TxtNumDoc.Text, TxtNumRegistro.Text, TxtNomProv.Text, TxtIdExcl.Text, Convert.ToDecimal(TxtImpuEspe.Text), Convert.ToDecimal(TxtCompExtLocales.Text), Convert.ToDecimal(TxtCompExtImport.Text), Convert.ToDecimal(TxtCompExtInter.Text), Convert.ToDecimal(TxtCompGraLocales.Text), Convert.ToDecimal(TxtCompGraImportaciones.Text), Convert.ToDecimal(TxtCompGrInternacionales.Text), Convert.ToDecimal(TxtCreditoFiscal.Text), Convert.ToDecimal(TxtTotalCompras.Text), Convert.ToDecimal(TxtIvaUnoPorcientoRetenido.Text), Convert.ToDecimal(TxtRet_Suj_Exc_Cal_Contri.Text), Convert.ToDecimal(TxtComprasExcluidas.Text), Convert.ToDecimal(TxtRetencionATerceros.Text),vmes2,vano2, Convert.ToDecimal(TxtFovial.Text), Convert.ToDecimal(TxtConsTrans.Text), CmbLibro.Text,CmbTipoDoc.Text,CmbDentroCA.Text,  idfactura);
                     MessageBox.Show("Registro Editado");
                     LimpiarTextbox();
@@ -671,6 +673,8 @@ namespace CapaPresentacion
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
+                
+
                 idfactura = dataGridView1.CurrentRow.Cells["ID"].Value.ToString();
                 objetoCN.EliminaDoc(idfactura);
                 MessageBox.Show("Eliminado Corretamente");
@@ -717,6 +721,12 @@ namespace CapaPresentacion
         {
             //double total = Convert.ToInt32(TxtCompExtLocales.Text) + Convert.ToInt32(TxtCompExtImport.Text);
              //TxtTotalCompras.Text = total;
+        }
+
+        private void CmbActualizar_Click(object sender, EventArgs e)
+        {
+            CargaDoc();
+            consultar();
         }
     }
 }

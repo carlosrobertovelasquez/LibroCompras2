@@ -85,12 +85,14 @@
             this.label23 = new System.Windows.Forms.Label();
             this.CmbTipoDoc = new System.Windows.Forms.ComboBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.CmbActualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(11, 63);
             this.dataGridView1.Name = "dataGridView1";
@@ -755,11 +757,23 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // CmbActualizar
+            // 
+            this.CmbActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CmbActualizar.Location = new System.Drawing.Point(692, 19);
+            this.CmbActualizar.Name = "CmbActualizar";
+            this.CmbActualizar.Size = new System.Drawing.Size(120, 32);
+            this.CmbActualizar.TabIndex = 64;
+            this.CmbActualizar.Text = "Actualizar";
+            this.CmbActualizar.UseVisualStyleBackColor = true;
+            this.CmbActualizar.Click += new System.EventHandler(this.CmbActualizar_Click);
+            // 
             // FrmLibroCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1330, 690);
+            this.Controls.Add(this.CmbActualizar);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.CmbTipoDoc);
             this.Controls.Add(this.CmdExcel);
@@ -884,6 +898,7 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox CmbTipoDoc;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button CmbActualizar;
     }
 }
 
